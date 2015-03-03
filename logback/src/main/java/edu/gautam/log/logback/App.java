@@ -24,11 +24,11 @@ public class App
         String name = "Sia";
         
         root.setLevel(Level.TRACE);
-        System.out.println(bunchOfLogStatements(name));
+        System.out.println("Time taken:" + bunchOfLogStatements(name));
         
         root.setLevel(Level.ERROR);
         System.out.println("Logger set to ERROR");
-        System.out.println(bunchOfLogStatements(name));
+        System.out.println("Time taken:" + bunchOfLogStatements(name));
     }
 
 	private static long bunchOfLogStatements(String name) {
@@ -37,13 +37,13 @@ public class App
         slf4jLogger.info("Welcome to the HelloWorld example of Logback.");
         slf4jLogger.warn("Dummy warning message.");
         slf4jLogger.error("Dummy error message.");
-        return nanoTime -= System.nanoTime();
+        return nanoTime = (long) ((System.nanoTime() - nanoTime) /100000.0);
 	}
     
     private static String getName(String name) {
     	System.out.println("getName called for logger level: " + root.getEffectiveLevel());
     	try {
-			Thread.sleep(20);
+			Thread.sleep(100);
 		} catch (InterruptedException e) {
 		}
     	return name;
